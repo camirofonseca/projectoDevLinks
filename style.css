@@ -20,7 +20,7 @@ body{
   background-size: cover; */
 
   background: var(--bg-url) no-repeat top center/cover;
-  height: 100vh;
+  height: 100vh--bg-url: url(./assets/bg-desktop.jpg);
 }
 
 body * {
@@ -70,15 +70,18 @@ body * {
   border: 0;
   border-radius: 50%;
   position: absolute;
-  left:0;
+  left: 0;
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+  animation: slide-on .4s;
 
 }
+#switch button:hover{
+  outline: 8px solid var(--social-color);
+}
 .light #switch button{
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
 }
 
 #switch span {
@@ -158,5 +161,25 @@ footer{
   }
   .light{
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+
+@keyframes slide-in{
+  from{
+    left:0 ;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-on{
+  from{
+    left:50%;
+  }
+  to {
+    left: 0;
   }
 }
